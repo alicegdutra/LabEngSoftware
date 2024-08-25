@@ -1,16 +1,16 @@
 function verificarPalindromo() {
-    const texto = document.getElementById('texto').value;
+    let texto = prompt("Insira ums frase:");
 
-    const textoLimpo = texto.toLowerCase().replace(/[\W_]/g, '');
+    const ajustarTexto = texto.toLowerCase().replace(/[\W_]/g, '');
 
     const pilha = [];
-    for (let i = 0; i < textoLimpo.length; i++) {
-        pilha.push(textoLimpo[i]);
+    for (let i = 0; i < ajustarTexto.length; i++) {
+        pilha.push(ajustarTexto[i]);
     }
 
-    let ehPalindromo = true;
-    for (let i = 0; i < textoLimpo.length; i++) {
-        if (textoLimpo[i] !== pilha.pop()) {
+    let Palindromo = true;
+    for (let i = 0; i < ajustarTexto.length; i++) {
+        if (ajustarTexto[i] !== pilha.pop()) {
             Palindromo = false;
             break;
         }
