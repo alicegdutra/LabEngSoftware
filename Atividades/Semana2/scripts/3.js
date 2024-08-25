@@ -3,17 +3,17 @@ function verificarPalindromo() {
 
     const textoLimpo = texto.toLowerCase().replace(/[\W_]/g, '');
 
-    let inicio = 0;
-    let fim = textoLimpo.length - 1;
-    let ehPalindromo = true;
+    const pilha = [];
+    for (let i = 0; i < textoLimpo.length; i++) {
+        pilha.push(textoLimpo[i]);
+    }
 
-    while (inicio < fim) {
-        if (textoLimpo[inicio] !== textoLimpo[fim]) {
+    let ehPalindromo = true;
+    for (let i = 0; i < textoLimpo.length; i++) {
+        if (textoLimpo[i] !== pilha.pop()) {
             Palindromo = false;
             break;
         }
-        inicio++;
-        fim--;
     }
 
     if (Palindromo) {
@@ -22,3 +22,4 @@ function verificarPalindromo() {
         alert('Não é um palíndromo.');
     }
 }
+verificarPalindromo();
