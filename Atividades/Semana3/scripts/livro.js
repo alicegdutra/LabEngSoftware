@@ -1,7 +1,7 @@
 var livros = [];
 
 function adicionarLivro() {
-    var nomeLivro = document.getElementById('nomeLivro').value;
+    var nomeLivro = document.getElementById('nomeLivro').value.trim().toLowerCase();
     
     if (nomeLivro !== "") {
         livros[livros.length] = nomeLivro; 
@@ -22,6 +22,11 @@ function atualizarLista() {
         li.appendChild(document.createTextNode(livros[i]));
         listaLivros.appendChild(li);
     }
+}
+
+function limparLista() {
+    livros = [];
+    atualizarLista()
 }
 
 document.getElementById('livroForm').onsubmit = function() {
