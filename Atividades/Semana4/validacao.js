@@ -18,7 +18,7 @@ function alternarCampos() {
 
         var matriculaLabel = document.createElement('label');
         matriculaLabel.setAttribute('for', 'matricula');
-        matriculaLabel.textContent = 'Matrícula:';
+        matriculaLabel.textContent = 'Matrícula (10 dígitos):';
 
         var matriculaInput = document.createElement('input');
         matriculaInput.setAttribute('type', 'text');
@@ -56,7 +56,7 @@ function alternarCampos() {
 
         var matriculaLabel = document.createElement('label');
         matriculaLabel.setAttribute('for', 'matricula');
-        matriculaLabel.textContent = 'Matrícula:';
+        matriculaLabel.textContent = 'Matrícula (5 dígitos):';
 
         var matriculaInput = document.createElement('input');
         matriculaInput.setAttribute('type', 'text');
@@ -89,6 +89,18 @@ function validarCampo(id) {
     }
 }
 
+function formatarTelefone(campo) {
+    var valor = campo.value.replace(/\D/g, "");
+
+    if (valor.length > 10) {
+        valor = valor.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+    } else {
+        valor = valor.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
+    }
+
+    campo.value = valor;
+}
+
 function validarFormulario() {
     var nomeValido = validarCampo('nome');
     var emailValido = validarCampo('email');
@@ -105,6 +117,8 @@ function validarFormulario() {
 
     return nomeValido && emailValido && dataNascimentoValido && camposExtrasValidos;
 }
+
+
 
 
 window.onload = function() {

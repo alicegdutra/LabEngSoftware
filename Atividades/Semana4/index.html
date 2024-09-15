@@ -23,6 +23,14 @@
             <input type="date" id="data_nascimento" name="data_nascimento">
             <div id="data_nascimento_erro" class="erro"></div>
 
+            <label for="telefone_fixo">Telefone Fixo:</label>
+            <input type="text" id="telefone_fixo" name="telefone_fixo" placeholder="(xx)xxxx-xxxx" oninput="formatarTelefone(this)">
+            <div id="telefone_fixo_erro" class="erro"></div>
+
+            <label for="telefone_celular">Telefone Celular:</label>
+            <input type="text" id="telefone_celular" name="telefone_celular" placeholder="(xx)xxxxx-xxxx" oninput="formatarTelefone(this)">
+            <div id="telefone_celular_erro" class="erro"></div>
+
             <div class="radio-group">
                 <input type="radio" id="professor" name="tipo_usuario" value="Professor" onclick="alternarCampos()">
                 <label for="professor">Professor</label>
